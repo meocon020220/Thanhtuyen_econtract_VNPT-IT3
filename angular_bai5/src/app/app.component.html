@@ -1,0 +1,45 @@
+<hello name="{{ name }}"></hello>
+<p>
+ <b>  Start  :) </b>
+</p>
+<!--
+  for (let u of users){
+
+  }
+  -$implicit: item implicit context variable(implicit chinh la 'u' phia duoi)
+  -index:so thu tu cua item hien tai
+  -count:do dai cua array
+  -first: true neu item do la dau tien cua array
+  -last:true neu item do la cuoi cung cua array
+  -even: true neu item do la vi tri chan
+  -odd: true neu item do la vi tri le
+-->
+<ol>
+  <ng-container *ngIf="users.length>0; else noUsers"> 
+ <!--<li *ngFor="let u of users">{{u.firstName}} {{u.lastName}}-{{u.id}}-{{u.phone}}-{{u.gender}}-{{u.email}}> </li>-->
+
+  <li *ngFor="let u of users; index as idx;count as total; first as isfirst; last as islast; even as iseven; odd as isodd"> 
+   <span>
+     {{u.firstName}} {{u.lastName}}- {{u.id}} -{{u.phone}} -{{u.gender}} - {{u.email}}
+   </span>
+   <br/>
+   <span>
+     index hien tai {{idx}} trong sum {{total}}
+   </span>
+   <br/>
+   <span *ngIf="iseven"> vi tri so le </span>
+   <br/>
+   <span *ngIf="isodd"> vi tri so chan</span>
+   <br/>
+   <span *ngIf="isfirst"> item dau tien </span>
+   <br/>
+   <span *ngIf="islast"> item cuoi cung </span>
+   <br/>
+   <br/>
+   <br/>
+  </li>
+ </ng-container>
+ <ng-template #noUsers></ng-template>
+ </ol> 
+
+

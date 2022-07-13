@@ -1,0 +1,11 @@
+{{name}}
+<hello *ngIf="user.age >= 13; else under13" [name]="user.name"> </hello>
+
+<ng-template #under13>
+  <div>
+    Bạn không thể xem nội dung under13
+  </div>
+</ng-template>
+<button (click)="user.age=user.age-1">-</button>
+age: {{user.age}}
+<button (click)="user.age=user.age+1">+</button>
